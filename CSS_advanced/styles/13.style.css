@@ -2,10 +2,12 @@ html {
     scroll-behavior: smooth;
     font-size: 62.5%
 }
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-title);
     font-weight: var(--font-weight-bold);
 }
+
 body {
     color: var(--text-color);
     font-family: var(--font-family-base);
@@ -13,28 +15,36 @@ body {
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-base);
 }
+
 a:link {
     color: var(--text-color);
     text-decoration: none;   
 }
+
 a:visited {
     font-style: italic;
 }
+
 a:hover {
     text-decoration: underline;
 }
+
 a:active {
     background-color: var(--color-light-grey);
 }
+
 .visually-hidden {
     display: none;
 }
+
 .card-category {
     color: var(--color-primary);
 }
+
 .section-header {
     text-align: var(--section-header-align);
 }
+
 .section-title {
     font-family: var(--font-family-title);
     font-size: var(--font-size-xx-large);
@@ -42,12 +52,14 @@ a:active {
     margin: var(--section-title-margin);
     color: var(--section-title-color);
 }
+
 .section-tagline {
     color: var(--color-primary);
     font-family: var(--font-family-title);
     text-transform: var(--section-tagline-transform);
     font-weight: var(--font-weight-bold);
 }
+
 :root {
     --color-primary: #d73953;
     --color-black: #090909;
