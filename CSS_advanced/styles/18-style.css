@@ -444,7 +444,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-body {
-    padding: var(--section-body-padding);
+    padding:var(--section-body-padding)
 }
 
 .section-footer {
@@ -469,8 +469,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
     width: 960px;
-    margin-right: auto;
     margin-left: auto;
+    margin-right: auto;
 }
 
 .footer {
@@ -493,7 +493,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: var(--nav-item-font-weight);
     font-size: var(--nav-item-font-size);
     letter-spacing: var(--nav-item-letter-spacing);
-    display: var(--nav-item-display);
+    display: var(--nave-item-display);
     margin: var(--nav-item-margin);
 }
 
