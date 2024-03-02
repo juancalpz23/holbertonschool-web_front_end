@@ -381,7 +381,7 @@
     --nav-item-font-weight: var(--font-weight-bold);
     --nav-item-font-size: var(--font-size-medium);
     --nav-item-letter-spacing: 0.04rem;
-    --nave-item-display: inline-block;
+    --nav-item-display: inline-block;
     --nav-item-margin: 0 0 3rem 0;
     --nav-item-link-hover: var(--color-primary);
 }
@@ -444,7 +444,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-body {
-    padding:var(--section-body-padding)
+    padding: var(--section-body-padding);
 }
 
 .section-footer {
@@ -469,8 +469,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
     width: 960px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
 }
 
 .footer {
@@ -493,7 +493,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: var(--nav-item-font-weight);
     font-size: var(--nav-item-font-size);
     letter-spacing: var(--nav-item-letter-spacing);
-    display: var(--nave-item-display);
+    display: var(--nav-item-display);
     margin: var(--nav-item-margin);
 }
 
