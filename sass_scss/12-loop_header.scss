@@ -1,0 +1,7 @@
+/* Using for each to create h tags */
+
+@for $i from 1 through 5 {
+    h#{$i} {
+        font-size: #{$i}px;
+    }
+}
