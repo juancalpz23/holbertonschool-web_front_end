@@ -1,0 +1,17 @@
+/* Assign bg-colors to body and h2 tags using variable */
+
+$color: #3D3D3D;
+$bg-color:#6D6D6D;
+
+h2 {
+    background-color: $bg-color;
+}
+
+body {
+    color: $color;
+    background-color: $bg-color
+}
+
+p {
+    color: $color;
+}
