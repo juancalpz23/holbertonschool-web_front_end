@@ -3,7 +3,6 @@
     2. LAYOUT
     3. SECTION
     4. CARD
-    5. ARCTICLE PAGE
 */
 
 /*** 1. GLOBAL ***/
@@ -537,7 +536,7 @@
         background-position: 50% 0;
     }
 
-    .hero-article ::before {
+    .hero-article::before {
         content: '';
         background: rgba(0, 0, 0, 0.8);
         position: absolute;
