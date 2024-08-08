@@ -156,7 +156,7 @@
 
   .button-primary {
     color: var(--color-white);
-    background: var(--color-primary)
+    background: var(--color-primary);
   }
 
   .button-primary:hover {
@@ -822,7 +822,7 @@ input:not(:placeholder-shown) ~ .form-field-icon::after {
 
     .form-search {
         display: block;
-        padding: .5rem;
+        padding: .5rem 0;
         position: relative;
     }
     .form-search .search-button {
