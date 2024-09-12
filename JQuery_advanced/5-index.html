@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Task 5</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <style>
+      .remove-btn {
+        background-color: orange;
+        cursor: pointer;
+        padding: 5px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script type="application/javascript">
+      function createFamilyTree() {
+        $('<table>').append(
+          $('<thead>').append(
+            $('<tr>').append(
+              $('<th>').text('Firstname'),
+              $('<th>').text('Lastname')
+            )
+          ),
+          $('<tbody>')
+        ).appendTo('body');
+      }
+
+      function addNewMember(firstName, lastName) {
+        $('<tr>').append(
+          $('<td>').text(firstName),
+          $('<td>').text(lastName),
+          $('<td>').text('(x)')
+            .addClass('remove-btn')
+            .click(function() {
+              $(this).closest('tr').remove();
+            })
+        ).appendTo('tbody');
+      }
+
+      createFamilyTree();
+
+      addNewMember('Guillaume', 'Salva');
+      addNewMember('Arielle', 'Snizt');
+      addNewMember('Fanette', 'Snizt');
+      addNewMember('Gerard', 'Snizt');
+      addNewMember('Victor', 'Salva');
+    </script>
+  </body>
+
+</html>
