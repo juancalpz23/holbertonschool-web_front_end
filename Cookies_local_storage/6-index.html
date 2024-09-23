@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart with Session Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Items</h1>
+    <div id="store-container"></div>
+
+    <script>
+        const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+        // Check if sessionStorage is supported
+        if (typeof(Storage) === "undefined") {
+            alert("Sorry, your browser does not support Web storage. Try again with a better one.");
+        } else {
+            // Display store and cart if sessionStorage is available
+            createStore();
+            displayCart();
+        }
+
+        // Function to add item to session storage
+        function addItemToCart(item) {
+            // Store item as key in sessionStorage with value true
+            sessionStorage.setItem(item, true);
+            displayCart();  // Update the cart message after adding an item
+        }
+
+        // Function to create and display the store (list of items)
+        function createStore() {
+            const storeContainer = document.getElementById("store-container");
+            const itemList = document.createElement("ul");
+
+            // Loop through the available items and create a list item for each
+            availableItems.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+
+                // Add click event to add item to cart
+                listItem.onclick = function() {
+                    addItemToCart(item);
+                };
+
+                itemList.appendChild(listItem);
+            });
+
+            storeContainer.appendChild(itemList);
+        }
+
+        // Function to display cart items count
+        function displayCart() {
+            // Get all keys from sessionStorage (representing cart items)
+            const cartItems = Object.keys(sessionStorage);
+
+            // If there are items in session storage, display the count
+            if (cartItems.length > 0) {
+                const message = document.createElement("p");
+                message.textContent = `You previously had ${cartItems.length} items in your cart.`;
+
+                // Append the message to the body, after clearing any previous message
+                const existingMessage = document.querySelector('p');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+                document.body.appendChild(message);
+            }
+        }
+    </script>
+</body>
+</html>
