@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Cookie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="email"] {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #F5F5F5;
+            border-radius: 3px;
+            border-width: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <form>
+        <input type="text" id="firstname" placeholder="Firstname">
+        
+        <input type="email" id="email" placeholder="Email">
+        
+        <button type="button" onclick="setCookies()">Log me in</button>
+    </form>
+    <h1>Cookies</h1>
+    <button type="button" onclick="showCookies()">Show the cookies</button>
+
+    <div id="cookieDisplay"></div>
+
+    <script>
+        // Function to set cookies with expiration and path
+        function setCookies() {
+            let firstname = document.getElementById("firstname").value;
+            let email = document.getElementById("email").value;
+            
+            // Set cookie expiration to 10 days
+            let date = new Date();
+            date.setTime(date.getTime() + (10 * 24 * 60 * 60 * 1000)); // 10 days in milliseconds
+            let expires = "expires=" + date.toUTCString();
+
+            // Set cookies with expiration and path
+            document.cookie = `firstname=${firstname}; ${expires}; path=/`;
+            document.cookie = `email=${email}; ${expires}; path=/`;
+
+            alert('Cookies have been set with a 10-day expiration!');
+        }
+
+        // Function to get cookie by name
+        function getCookie(name) {
+            let cookieArr = document.cookie.split("; ");
+            for (let cookie of cookieArr) {
+                let [cookieName, cookieValue] = cookie.split("=");
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return ""; // Return empty string if cookie not found
+        }
+
+        // Function to show cookies
+        function showCookies() {
+            let email = getCookie("email");
+            let firstname = getCookie("firstname");
+
+            // Create or update paragraph
+            let p = document.createElement("p");
+            let cookieDisplay = document.getElementById("cookieDisplay");
+
+            // Display cookies in the format "Email: EMAIL - Firstname: FIRSTNAME"
+            p.innerHTML = `Email: ${email || 'N/A'} - Firstname: ${firstname || 'N/A'}`;
+
+            // Clear previous display and append the new paragraph
+            cookieDisplay.innerHTML = '';
+            cookieDisplay.appendChild(p);
+        }
+    </script>
+</body>
+</html>
