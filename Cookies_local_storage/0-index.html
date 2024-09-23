@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="email"] {
+            margin-bottom: 10px;
+
+        }
+        button {
+            background-color: #F5F5F5;
+            border-radius: 3px;
+            border-width: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <form>
+        <input type="text" id="firstname" placeholder="Firstname">
+        
+        <input type="email" id="email" placeholder="Email">
+        
+        <button type="button" onclick="setCookies()">Log me in</button>
+    </form>
+    <h1>Cookies</h1>
+    <button type="button" onclick="showCookies()">Show the cookies</button>
+
+    <div id="cookieDisplay"></div>
+
+    <script>
+        // Function to set cookies
+        function setCookies() {
+            let firstname = document.getElementById("firstname").value;
+            let email = document.getElementById("email").value;
+            
+            document.cookie = `firstname=${firstname}; path=/;`;
+            document.cookie = `email=${email}; path=/;`;
+            
+            alert('Cookies have been set!');
+        }
+
+        // Function to show cookies
+        function showCookies() {
+            // Create a paragraph element
+            let p = document.createElement("p");
+            let cookieDisplay = document.getElementById("cookieDisplay");
+
+            // Get the cookies and display them
+            let cookies = document.cookie.split('; ').reduce((acc, cookie) => {
+                let [name, value] = cookie.split('=');
+                acc[name] = value;
+                return acc;
+            }, {});
+            
+            // Set the inner HTML of the paragraph
+            p.innerHTML = `Cookies: ${JSON.stringify(cookies)}`;
+
+            // Clear previous display and append the new paragraph
+            cookieDisplay.innerHTML = '';
+            cookieDisplay.appendChild(p);
+        }
+    </script>
+</body>
+</html>
